@@ -1,0 +1,27 @@
+version: '3.3'
+
+services:
+
+  app: # Сервис для запуска 3 проекта
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    ports:
+      - ${APP_PORT}:${APP_PORT}
+    command: gunicorn -b 0.0.0.0:${APP_PORT} page_analyzer.app:app
+
+  db: # Сервис для запуска базы данных
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./database.sql:/docker-entrypoint-initdb.d/001.sql # При первом старте контейнера данные из файла database.sql будут загружены в базу данных
+    ports:
+      - 5432:5432

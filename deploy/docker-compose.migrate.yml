@@ -1,0 +1,9 @@
+version: '3.3'
+
+services:
+
+  migrate-db: # Сервис для запуска скрипта миграции базы данных в 3 проекте
+    image: postgres:15
+    volumes:
+      - .:/app
+    command: psql -a -d ${DATABASE_URL} -f /app/database.sql && echo "Database migrated"

@@ -1,0 +1,9 @@
+services:
+    python_interpreter:
+        build:
+            context: src
+            dockerfile: Dockerfile
+        volumes:
+            - .:/app
+        # Команда нужна для того, чтобы контейнер не завершался после запуска
+        command: tail -f /dev/null # Это трюк на остлеживание файла, который никогда не изменится
