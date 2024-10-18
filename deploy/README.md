@@ -15,7 +15,8 @@
 
 ```
 
-Бесплатный деплой проектов -> [https://render.com/](https://dashboard.render.com/) (3 проекта + 1 база данных)
-Платный VPS и база, которая была на вебинаре -> [https://www.reg.ru/vps](https://www.reg.ru/vps/?rlink=reflink-1195439)
+### Ссылки
+* Бесплатный деплой проектов -> [https://render.com/](https://dashboard.render.com/) (3 проекта + 1 база данных)
+* Платный VPS и база, которая была на вебинаре -> [https://www.reg.ru/vps](https://www.reg.ru/vps/?rlink=reflink-1195439)
 
 
