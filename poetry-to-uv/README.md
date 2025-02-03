@@ -1,6 +1,6 @@
 # Инструкция по миграции проекта с Poetry на uv
 
-### Шаг 0. Установите uv 
+## Шаг 0. Установите uv 
 
 ```bash
 # For macOS and Linux
@@ -13,7 +13,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv --version
 ```
 
-### Шаг 1. Миграция файла зависимостей
+## Шаг 1. Миграция файла зависимостей
 
 ```bash
 uvx pdm import pyproject.toml
@@ -32,15 +32,15 @@ error: Failed to parse: `pyproject.toml`
    |        ^^^^^^^^^^^^^^^^^^^^^^^^^
 Not a valid package or extra name: "Project Name With Error". Names must start and end with a letter or digit and may only contain -, _, ., and alphanumeric characters.
 ```
-В этом случае нужно исправить ошибки и повторить `uv sync`, чтобы убедиться что все рабоает.
+В этом случае нужно исправить ошибки и повторить `uv sync`, чтобы убедиться что все работает.
 
 
-### Шаг 2. Удалите упоминания poetry из файла зависимостей
+## Шаг 2. Удалите упоминания poetry из файла зависимостей
 
 Найдите в файле `pyproject.toml` все блоки которые начинаются с `[tool.poetry` и удалите их.
 
 
-### Шаг 3. Переименуйте dev зависимости
+## Шаг 3. Переименуйте dev зависимости
 
 Замените эти строки:
 ```
@@ -53,7 +53,7 @@ dev = [
 dev-dependencies = [
 ```
 
-### Шаг 4. Удалите файл `poetry.lock` и .venv
+## Шаг 4. Удалите файл `poetry.lock` и .venv
 
 ```bash
 rm poetry.lock
@@ -65,6 +65,6 @@ rm poetry.lock
 rm -rf .venv
 ```
 
-### Шаг 5. Посмотрите в зеркало и похвалите себя
+## Шаг 5. Посмотрите в зеркало и похвалите себя
 
 Наслаждайтесь новым пакетным менеджером
